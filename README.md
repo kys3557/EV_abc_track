@@ -1,13 +1,28 @@
 # -제4회 국제 대학생 EV 자율주행 경진대회-
-대회장 트랙
+**주행 트랙**  
 
-<img width="517" height="362" alt="image" src="https://github.com/user-attachments/assets/b563cc24-c505-4073-853b-18eb6e3517e2" />
+<img width="517" height="362" alt="image" src="https://github.com/user-attachments/assets/b563cc24-c505-4073-853b-18eb6e3517e2" />  
 
-<img src="https://github.com/user-attachments/assets/4901b476-a060-45a5-a4ac-848052b0d463" width="517" height="362"/>
+<img src="https://github.com/user-attachments/assets/4901b476-a060-45a5-a4ac-848052b0d463" width="517" height="462"/>  
+  
+---
 
-총 A, B, C 세 개의 구간으로 구성되어, 각 구간에 따라 사용하는 센서와 주행 방식이 다름
+**팀장**: 김윤식  
+**팀원**: 김원준, 옥정우  
+| 항목 | 내용 |
+|------|------|
+| 차량 타입 | 1/10 스케일 JetRacer ROS AI Kit (아커만 조향) |
+| 제어 보드 | Jetson Nano (ROS1 Melodic, Ubuntu 18.04) |
+| 센서 | IMX219-160 카메라, 2D LiDAR (e.g. RPLIDAR A1) |
+| 통신 방식 | Ethernet/Wi-Fi (SSH 접속) |
+| 전원 공급 | 18650 리튬 폴리머 배터리 (3.7V, 3500mAh) |  
 
---구역별 주행 규칙--
+<img src="https://github.com/user-attachments/assets/11c8e007-86b1-4f64-adf5-7efc31882517" alt="Jetracer ROS AI Kit" width="517" height="462"/>
+
+---
+총 A, B, C 세 개의 구간으로 구성되어, 각 구간에 따라 사용하는 센서와 주행 방식이 다름  
+
+**구역별 주행 규칙**
 
 🔹 A구역 (카메라 전용 구간)
 - 사용 센서: 카메라
@@ -39,11 +54,11 @@
 BEV pixel_hls.py
 -----------------
 
-A구역에서 사용되는 카메라 기반 자율주행 알고리즘을 위한 BEV(Bird’s Eye View) 변환 좌표 설정 및 흰색 차선 색상 범위(HLS) 수동 측정을 위해 제작된 도구
+A구역에서 사용되는 카메라 기반 자율주행 알고리즘을 위한 BEV(Bird’s Eye View) 변환 좌표 설정 및 흰색 차선 색상 범위(HLS) 수동 측정을 위해 제작  
 
-BEV 좌표 추출: 마우스로 차선 4점 클릭하여 상시 변하는 카메라 시야에 맞게 BEV 변환 좌표를 수동으로 수집
+**BEV 좌표 추출**: 마우스로 차선 4점 클릭하여 상시 변하는 카메라 시야에 맞게 BEV 변환 좌표를 수동으로 수집  
 
-흰색 차선의 밝기/조도 대응: 실외 환경(햇빛, 그림자 등)에 따라 변화하는 차선의 색상을 HLS 공간에서 수치화하여, 적절한 lower, upper 필터값을 설정
+**흰색 차선의 밝기/조도 대응**: 실외 환경(햇빛, 그림자 등)에 따라 변화하는 차선의 색상을 HLS 공간에서 수치화하여, 적절한 lower, upper 필터값을 설정
 
 -----------------------
 abc_com.py
@@ -59,6 +74,7 @@ process_a() {
   → 조향 계산: calculate_steering_angle() #pure pursuit제어  
   → 제어 발행: publish_control()  
 }  
+
 
 process_b() {  
 좌/우 벽의 거리 차이를 이용해 차량이 중앙에서 얼마나 벗어났는지 계산  
@@ -77,4 +93,17 @@ LiDAR에서 좌우 벽의 평균 거리가 모두(AND) wall_threshold 미만일 
 B → C 전환 트리거  
 양쪽 벽이 모두 사라질 경우 통로에서 빠져나왔음을 의미하여 해당 Odom 좌표로 이동  
 
-  
+---
+
+**주행 영상**  
+
+https://github.com/user-attachments/assets/bad66ce5-53da-4e18-9b8b-f3927af6e2bb
+
+
+**RQT 화면**  
+
+https://github.com/user-attachments/assets/28122368-daee-4000-979e-f9e78e4d8609
+
+
+
+
