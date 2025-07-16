@@ -15,7 +15,7 @@
 | 제어 보드 | Jetson Nano (ROS1 Melodic, Ubuntu 18.04) |
 | 센서 | IMX219-160 카메라, 2D LiDAR (e.g. RPLIDAR A1) |
 | 통신 방식 | Ethernet/Wi-Fi (SSH 접속) |
-| 전원 공급 | 18650 리튬 폴리머 배터리 (3.7V, 3500mAh) |  
+| 전원 공급 | 18650 리튬 이온 배터리 (3.7V, 3500mAh) |  
 
 <img src="https://github.com/user-attachments/assets/11c8e007-86b1-4f64-adf5-7efc31882517" alt="Jetracer ROS AI Kit" width="517" height="462"/>
 
